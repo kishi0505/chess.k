@@ -1,0 +1,477 @@
+<div class="app">
+
+  <!-- HEADER -->
+
+  <header class="header">
+
+    <div class="logo-area">
+
+      <div class="logo">
+        ♛
+      </div>
+
+      <div>
+        <h1 style="color: white;">
+          CHESS<span>ARENA</span>
+        </h1>
+
+        <p>
+          MULTIPLAYER CHESS
+        </p>
+      </div>
+
+    </div>
+
+
+    <div class="online">
+
+      <span class="online-dot"></span>
+
+      ONLINE
+
+    </div>
+
+  </header>
+
+
+  <!-- MAIN -->
+
+  <main class="container">
+
+
+    <!-- HERO -->
+
+    <section class="hero">
+
+      <div class="badge">
+        ♟ LIVE MULTIPLAYER
+      </div>
+
+      <h2 style="color: white;">
+        PLAY CHESS.
+        <span>KiSH.</span>
+      </h2>
+
+      <p>
+        Challenge your friends in a private multiplayer chess room.
+      </p>
+
+    </section>
+
+
+    <!-- ROOM -->
+
+    <section class="room-card">
+
+      <div class="room-heading">
+
+        <div class="room-icon">
+          ⚔
+        </div>
+
+        <div>
+
+          <h3 style="color: white;">
+            GAME ROOM
+          </h3>
+
+          <p>
+            Create a new room or join an existing game
+          </p>
+
+        </div>
+
+      </div>
+
+
+      <div class="room-form">
+
+        <div class="input-box">
+
+          <span>
+            #
+          </span>
+
+          <input
+            type="text"
+            [(ngModel)]="roomId"
+            placeholder="Enter Room ID"
+            maxlength="10"
+          />
+
+        </div>
+
+
+        <button
+          class="btn join"
+          (click)="joinRoom()"
+        >
+          JOIN ROOM
+        </button>
+
+
+        <button
+          class="btn create"
+          (click)="createRoom()"
+        >
+          + CREATE ROOM
+        </button>
+
+      </div>
+
+
+      <div class="message">
+
+        <span>
+          ●
+        </span>
+
+        {{ message }}
+
+      </div>
+
+    </section>
+
+
+    <!-- WAITING -->
+
+    <section
+      class="waiting"
+      *ngIf="roomId && !gameStarted"
+    >
+
+      <div class="waiting-piece">
+        ♞
+      </div>
+
+      <h2 style="color: white;">
+        WAITING FOR OPPONENT
+      </h2>
+
+      <p>
+        Share this Room ID with your friend
+      </p>
+
+      <div class="room-code">
+        {{ roomId }}
+      </div>
+
+      <div class="waiting-status">
+
+        <span></span>
+
+        WAITING
+
+        <span></span>
+
+      </div>
+
+    </section>
+
+
+    <!-- GAME -->
+
+    <section
+      class="game-layout"
+      *ngIf="board.length"
+    >
+
+
+      <!-- PLAYER -->
+
+      <div class="player-card">
+
+        <div class="player-avatar white">
+          ♔
+        </div>
+
+        <span class="player-label">
+          YOU
+        </span>
+
+        <h3>
+          {{ myColor | uppercase }}
+        </h3>
+
+        <div
+          class="turn-box"
+          [class.active]="turn === myColor"
+        >
+
+          <span></span>
+
+          {{
+            turn === myColor
+              ? 'YOUR TURN'
+              : 'WAITING'
+          }}
+
+        </div>
+
+      </div>
+
+
+      <!-- BOARD -->
+
+      <div class="board-container">
+
+        <div class="board-top">
+
+          <div>
+            ROOM:
+            <strong>
+              {{ roomId }}
+            </strong>
+          </div>
+
+          <div>
+            TURN:
+            <strong>
+              {{ turn | uppercase }}
+            </strong>
+          </div>
+
+        </div>
+
+
+        <!-- CHESS BOARD -->
+
+        <div class="chess-board">
+
+          <ng-container
+            *ngFor="
+              let row of board;
+              let rowIndex = index
+            "
+          >
+
+            <button
+              *ngFor="
+                let piece of row;
+                let colIndex = index
+              "
+
+              class="square"
+
+              [class.light]="
+                (rowIndex + colIndex) % 2 === 0
+              "
+
+              [class.dark]="
+                (rowIndex + colIndex) % 2 !== 0
+              "
+
+              [class.selected]="
+                isSelected(
+                  rowIndex,
+                  colIndex
+                )
+              "
+
+              (click)="
+                clickSquare(
+                  rowIndex,
+                  colIndex
+                )
+              "
+            >
+
+              <span
+                *ngIf="piece"
+                class="piece"
+                [ngClass]="
+                  getPieceClass(piece)
+                "
+              >
+                {{ piece }}
+              </span>
+
+
+              <!-- ROW NUMBER -->
+
+              <small
+                *ngIf="colIndex === 0"
+                class="rank"
+              >
+                {{ 8 - rowIndex }}
+              </small>
+
+
+              <!-- COLUMN LETTER -->
+
+              <small
+                *ngIf="rowIndex === 7"
+                class="file"
+              >
+                {{ 'abcdefgh'[colIndex] }}
+              </small>
+
+            </button>
+
+          </ng-container>
+
+        </div>
+
+
+        <!-- BOARD FOOTER -->
+
+        <div class="board-footer">
+
+          <div class="status">
+
+            <span
+              [class.active]="
+                turn === myColor
+              "
+            ></span>
+
+            {{
+              turn === myColor
+                ? 'Your turn to move'
+                : 'Waiting for opponent'
+            }}
+
+          </div>
+
+
+          <button
+            class="new-game"
+            (click)="resetGame()"
+          >
+            ↻ NEW GAME
+          </button>
+
+        </div>
+
+      </div>
+
+
+      <!-- OPPONENT -->
+
+      <div class="player-card">
+
+        <div class="player-avatar black">
+          ♚
+        </div>
+
+        <span class="player-label">
+          OPPONENT
+        </span>
+
+        <h3>
+
+          {{
+            myColor === 'white'
+              ? 'BLACK'
+              : 'WHITE'
+          }}
+
+        </h3>
+
+        <div
+          class="turn-box"
+          [class.active]="turn !== myColor"
+        >
+
+          <span></span>
+
+          {{
+            turn !== myColor
+              ? 'THEIR TURN'
+              : 'WAITING'
+          }}
+
+        </div>
+
+      </div>
+
+
+    </section>
+
+
+    <!-- FEATURES -->
+
+    <section class="features">
+
+      <div class="feature">
+
+        <div class="feature-icon">
+          ⚡
+        </div>
+
+        <div>
+
+          <h4>
+            REAL-TIME
+          </h4>
+
+          <p>
+            Instant multiplayer moves
+          </p>
+
+        </div>
+
+      </div>
+
+
+      <div class="feature">
+
+        <div class="feature-icon">
+          🔒
+        </div>
+
+        <div>
+
+          <h4>
+            PRIVATE ROOMS
+          </h4>
+
+          <p>
+            Play with your friends
+          </p>
+
+        </div>
+
+      </div>
+
+
+      <div class="feature">
+
+        <div class="feature-icon">
+          ♟
+        </div>
+
+        <div>
+
+          <h4>
+            CLASSIC CHESS
+          </h4>
+
+          <p>
+            Clean chess experience
+          </p>
+
+        </div>
+
+      </div>
+
+    </section>
+
+  </main>
+
+
+  <!-- FOOTER -->
+
+  <footer>
+
+    <span>♛</span>
+
+    CHESS ARENA
+
+    <small>
+      MULTIPLAYER CHESS
+    </small>
+
+  </footer>
+
+</div>

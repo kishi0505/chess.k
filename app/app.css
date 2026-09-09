@@ -1,0 +1,1273 @@
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  min-height: 100%;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background: #050505;
+  color: #ffffff;
+}
+
+
+/* =========================================
+   APP
+========================================= */
+
+.app {
+  min-height: 100vh;
+
+  background:
+    radial-gradient(
+      circle at 50% 0%,
+      #350707 0%,
+      #190303 25%,
+      #090909 55%,
+      #040404 100%
+    );
+}
+
+
+/* =========================================
+   HEADER
+========================================= */
+
+.header {
+  height: 75px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 0 45px;
+
+  background: #050505;
+
+  border-bottom: 1px solid #3d0b0b;
+}
+
+
+.logo-area {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+
+.logo {
+  width: 43px;
+  height: 43px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 9px;
+
+  background: #300606;
+
+  border: 1px solid #780c0c;
+
+  color: #e00000;
+
+  font-size: 25px;
+
+  box-shadow:
+    0 0 25px
+    rgba(190, 0, 0, 0.18);
+}
+
+
+.logo-area h1 {
+  margin: 0;
+
+  font-size: 19px;
+
+  font-weight: 900;
+
+  letter-spacing: 2px;
+}
+
+
+.logo-area h1 span {
+  color: #c00000;
+}
+
+
+.logo-area p {
+  margin: 3px 0 0;
+
+  color: #555;
+
+  font-size: 8px;
+
+  letter-spacing: 3px;
+}
+
+
+.online {
+  display: flex;
+
+  align-items: center;
+
+  gap: 8px;
+
+  color: #777;
+
+  font-size: 9px;
+
+  font-weight: 800;
+
+  letter-spacing: 2px;
+}
+
+
+.online-dot {
+  width: 8px;
+  height: 8px;
+
+  border-radius: 50%;
+
+  background: #d00000;
+
+  box-shadow:
+    0 0 12px
+    rgba(220, 0, 0, 0.8);
+}
+
+
+/* =========================================
+   CONTAINER
+========================================= */
+
+.container {
+  width: 100%;
+  max-width: 1450px;
+
+  margin: auto;
+
+  padding:
+    45px 25px 70px;
+}
+
+
+/* =========================================
+   HERO
+========================================= */
+
+.hero {
+  text-align: center;
+
+  margin-bottom: 40px;
+}
+
+
+.badge {
+  display: inline-block;
+
+  padding: 7px 14px;
+
+  margin-bottom: 15px;
+
+  border-radius: 30px;
+
+  border: 1px solid #650d0d;
+
+  background: #180303;
+
+  color: #d52222;
+
+  font-size: 9px;
+
+  font-weight: 800;
+
+  letter-spacing: 2px;
+}
+
+
+.hero h2 {
+  margin: 0;
+
+  font-size: clamp(35px, 5vw, 60px);
+
+  line-height: 1;
+
+  font-weight: 900;
+
+  letter-spacing: -2px;
+}
+
+
+.hero h2 span {
+  color: #c00000;
+}
+
+
+.hero p {
+  margin-top: 15px;
+
+  color: #707070;
+
+  font-size: 13px;
+}
+
+
+/* =========================================
+   ROOM CARD
+========================================= */
+
+.room-card {
+  width: 100%;
+  max-width: 900px;
+
+  margin: auto;
+
+  padding: 25px;
+
+  border-radius: 15px;
+
+  background:
+    linear-gradient(
+      145deg,
+      #171717,
+      #0c0c0c
+    );
+
+  border: 1px solid #481010;
+
+  box-shadow:
+    0 25px 70px
+    rgba(0, 0, 0, 0.5);
+}
+
+
+.room-heading {
+  display: flex;
+
+  align-items: center;
+
+  gap: 12px;
+
+  margin-bottom: 20px;
+}
+
+
+.room-icon {
+  width: 40px;
+  height: 40px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: #2c0606;
+
+  border: 1px solid #6c0b0b;
+
+  border-radius: 9px;
+
+  color: #e02121;
+
+  font-size: 18px;
+}
+
+
+.room-heading h3 {
+  margin: 0;
+
+  font-size: 14px;
+
+  letter-spacing: 1px;
+}
+
+
+.room-heading p {
+  margin: 4px 0 0;
+
+  color: #666;
+
+  font-size: 10px;
+}
+
+
+/* =========================================
+   ROOM FORM
+========================================= */
+
+.room-form {
+  display: flex;
+
+  gap: 10px;
+}
+
+
+.input-box {
+  position: relative;
+
+  flex: 1;
+}
+
+
+.input-box span {
+  position: absolute;
+
+  left: 14px;
+  top: 50%;
+
+  transform:
+    translateY(-50%);
+
+  color: #9b1515;
+
+  font-weight: 900;
+}
+
+
+.input-box input {
+  width: 100%;
+
+  height: 48px;
+
+  padding: 0 15px 0 34px;
+
+  border-radius: 8px;
+
+  border: 1px solid #353535;
+
+  outline: none;
+
+  background: #080808;
+
+  color: white;
+
+  font-size: 12px;
+}
+
+
+.input-box input::placeholder {
+  color: #555;
+}
+
+
+.input-box input:focus {
+  border-color: #9c0000;
+
+  box-shadow:
+    0 0 0 2px
+    rgba(160, 0, 0, 0.1);
+}
+
+
+/* =========================================
+   BUTTONS
+========================================= */
+
+.btn {
+  height: 48px;
+
+  padding: 0 20px;
+
+  border-radius: 8px;
+
+  cursor: pointer;
+
+  font-size: 10px;
+
+  font-weight: 900;
+
+  letter-spacing: 0.5px;
+
+  transition: 0.2s;
+}
+
+
+.join {
+  border: 1px solid #a00000;
+
+  background: #850000;
+
+  color: white;
+}
+
+
+.join:hover {
+  background: #b00000;
+
+  transform:
+    translateY(-1px);
+}
+
+
+.create {
+  border: 1px solid #3f3f3f;
+
+  background: #222;
+
+  color: #ddd;
+}
+
+
+.create:hover {
+  background: #303030;
+
+  transform:
+    translateY(-1px);
+}
+
+
+/* =========================================
+   MESSAGE
+========================================= */
+
+.message {
+  display: flex;
+
+  align-items: center;
+
+  gap: 8px;
+
+  margin-top: 13px;
+
+  padding: 11px;
+
+  border-radius: 7px;
+
+  background: #100303;
+
+  border: 1px solid #351010;
+
+  color: #777;
+
+  font-size: 10px;
+}
+
+
+.message span {
+  color: #c00000;
+}
+
+
+/* =========================================
+   WAITING
+========================================= */
+
+.waiting {
+  width: 100%;
+  max-width: 550px;
+
+  margin: 40px auto;
+
+  padding: 40px 20px;
+
+  text-align: center;
+
+  background: #101010;
+
+  border: 1px solid #451010;
+
+  border-radius: 15px;
+}
+
+
+.waiting-piece {
+  color: #a00000;
+
+  font-size: 45px;
+
+  margin-bottom: 10px;
+}
+
+
+.waiting h2 {
+  margin: 0;
+
+  font-size: 19px;
+}
+
+
+.waiting p {
+  color: #666;
+
+  font-size: 11px;
+}
+
+
+.room-code {
+  display: inline-block;
+
+  margin-top: 10px;
+
+  padding: 13px 25px;
+
+  background: #260404;
+
+  border: 1px solid #790000;
+
+  border-radius: 8px;
+
+  color: #f02a2a;
+
+  font-size: 23px;
+
+  font-weight: 900;
+
+  letter-spacing: 4px;
+}
+
+
+.waiting-status {
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  gap: 10px;
+
+  margin-top: 20px;
+
+  color: #555;
+
+  font-size: 8px;
+
+  letter-spacing: 2px;
+}
+
+
+.waiting-status span {
+  width: 35px;
+
+  height: 1px;
+
+  background: #3c0b0b;
+}
+
+
+/* =========================================
+   GAME LAYOUT
+========================================= */
+
+.game-layout {
+  display: flex;
+
+  justify-content: center;
+
+  align-items: flex-start;
+
+  gap: 22px;
+
+  margin-top: 35px;
+}
+
+
+/* =========================================
+   PLAYER CARD
+========================================= */
+
+.player-card {
+  width: 185px;
+
+  padding: 20px;
+
+  border-radius: 13px;
+
+  background:
+    linear-gradient(
+      145deg,
+      #161616,
+      #0d0d0d
+    );
+
+  border: 1px solid #3d0c0c;
+
+  box-shadow:
+    0 20px 45px
+    rgba(0, 0, 0, 0.4);
+
+  text-align: center;
+}
+
+
+.player-avatar {
+  width: 52px;
+  height: 52px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  margin: auto;
+
+  border-radius: 10px;
+
+  font-size: 31px;
+}
+
+
+.player-avatar.white {
+  background: #292929;
+
+  border: 1px solid #494949;
+
+  color: #fff;
+}
+
+
+.player-avatar.black {
+  background: #090909;
+
+  border: 1px solid #480b0b;
+
+  color: #b00000;
+}
+
+
+.player-label {
+  display: block;
+
+  margin-top: 15px;
+
+  color: #555;
+
+  font-size: 8px;
+
+  letter-spacing: 2px;
+}
+
+
+.player-card h3 {
+  margin: 5px 0 0;
+
+  font-size: 13px;
+
+  letter-spacing: 1px;
+}
+
+
+.turn-box {
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  gap: 7px;
+
+  margin-top: 17px;
+
+  padding: 9px;
+
+  border-radius: 7px;
+
+  background: #080808;
+
+  border: 1px solid #282828;
+
+  color: #555;
+
+  font-size: 8px;
+
+  font-weight: 900;
+}
+
+
+.turn-box span {
+  width: 6px;
+  height: 6px;
+
+  border-radius: 50%;
+
+  background: #444;
+}
+
+
+.turn-box.active {
+  background: #400606;
+
+  border-color: #671010;
+
+  color: #e12828;
+}
+
+
+.turn-box.active span {
+  background: #d00000;
+
+  box-shadow:
+    0 0 10px
+    rgba(210, 0, 0, 0.7);
+}
+
+
+/* =========================================
+   BOARD
+========================================= */
+
+.board-container {
+  width: min(650px, 62vw);
+}
+
+
+.board-top {
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+
+  margin-bottom: 10px;
+
+  padding: 0 3px;
+
+  color: #555;
+
+  font-size: 8px;
+
+  font-weight: 800;
+
+  letter-spacing: 1px;
+}
+
+
+.board-top strong {
+  color: #aaa;
+}
+
+
+/* =========================================
+   CHESS BOARD
+========================================= */
+
+.chess-board {
+  width: 100%;
+
+  aspect-ratio: 1 / 1;
+
+  display: grid;
+
+  grid-template-columns:
+    repeat(8, 1fr);
+
+  grid-template-rows:
+    repeat(8, 1fr);
+
+  overflow: hidden;
+
+  border: 7px solid #191919;
+
+  border-radius: 5px;
+
+  box-shadow:
+    0 25px 70px
+    rgba(0, 0, 0, 0.8),
+
+    0 0 0 1px #681010;
+}
+
+
+.square {
+  position: relative;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  padding: 0;
+
+  border: none;
+
+  cursor: pointer;
+
+  transition: 0.15s;
+}
+
+
+.square.light {
+  background: #b28a78;
+}
+
+
+.square.dark {
+  background: #633030;
+}
+
+
+.square:hover {
+  filter: brightness(1.15);
+}
+
+
+.square.selected {
+  box-shadow:
+    inset 0 0 0 5px #ff2929,
+
+    inset 0 0 25px
+    rgba(220, 0, 0, 0.35);
+
+  z-index: 5;
+}
+
+
+/* =========================================
+   PIECES
+========================================= */
+
+.piece {
+  position: relative;
+
+  z-index: 5;
+
+  font-family:
+    "Segoe UI Symbol",
+    "Noto Sans Symbols 2",
+    Arial,
+    sans-serif;
+
+  font-size:
+    clamp(30px, 5vw, 60px);
+
+  line-height: 1;
+
+  pointer-events: none;
+
+  transition: 0.15s;
+}
+
+
+.square:hover .piece {
+  transform:
+    scale(1.08);
+}
+
+
+.white-piece {
+  color: #fff;
+
+  text-shadow:
+    1px 2px 0 #555,
+
+    -1px -1px 0 #aaa,
+
+    0 4px 6px
+    rgba(0, 0, 0, 0.7);
+}
+
+
+.black-piece {
+  color: #101010;
+
+  text-shadow:
+    1px 2px 0 #555,
+
+    -1px -1px 0 #000,
+
+    0 4px 6px
+    rgba(0, 0, 0, 0.8);
+}
+
+
+/* =========================================
+   BOARD COORDINATES
+========================================= */
+
+.rank {
+  position: absolute;
+
+  top: 3px;
+  left: 4px;
+
+  color: rgba(255,255,255,0.55);
+
+  font-size: 8px;
+
+  font-weight: 900;
+
+  z-index: 10;
+}
+
+
+.file {
+  position: absolute;
+
+  right: 4px;
+  bottom: 3px;
+
+  color: rgba(255,255,255,0.55);
+
+  font-size: 8px;
+
+  font-weight: 900;
+
+  z-index: 10;
+}
+
+
+/* =========================================
+   BOARD FOOTER
+========================================= */
+
+.board-footer {
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+
+  margin-top: 13px;
+}
+
+
+.status {
+  display: flex;
+
+  align-items: center;
+
+  gap: 7px;
+
+  color: #666;
+
+  font-size: 10px;
+}
+
+
+.status span {
+  width: 7px;
+  height: 7px;
+
+  border-radius: 50%;
+
+  background: #444;
+}
+
+
+.status span.active {
+  background: #c00000;
+
+  box-shadow:
+    0 0 10px
+    rgba(210, 0, 0, 0.8);
+}
+
+
+.new-game {
+  height: 36px;
+
+  padding: 0 15px;
+
+  border-radius: 7px;
+
+  border: 1px solid #3d3d3d;
+
+  background: #1b1b1b;
+
+  color: #aaa;
+
+  cursor: pointer;
+
+  font-size: 9px;
+
+  font-weight: 900;
+}
+
+
+.new-game:hover {
+  background: #292929;
+
+  color: #fff;
+}
+
+
+/* =========================================
+   FEATURES
+========================================= */
+
+.features {
+  display: flex;
+
+  justify-content: center;
+
+  gap: 15px;
+
+  margin-top: 50px;
+}
+
+
+.feature {
+  width: 230px;
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 12px;
+
+  padding: 15px;
+
+  border-radius: 10px;
+
+  background: #101010;
+
+  border: 1px solid #2d0b0b;
+}
+
+
+.feature-icon {
+  width: 38px;
+  height: 38px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 8px;
+
+  background: #260505;
+
+  color: #c00000;
+
+  font-size: 17px;
+}
+
+
+.feature h4 {
+  margin: 0;
+
+  font-size: 9px;
+
+  letter-spacing: 1px;
+}
+
+
+.feature p {
+  margin: 5px 0 0;
+
+  color: #555;
+
+  font-size: 9px;
+}
+
+
+/* =========================================
+   FOOTER
+========================================= */
+
+footer {
+  padding: 25px;
+
+  text-align: center;
+
+  border-top: 1px solid #280909;
+
+  background: #050505;
+
+  color: #666;
+
+  font-size: 10px;
+
+  letter-spacing: 2px;
+}
+
+
+footer span {
+  color: #c00000;
+
+  font-size: 17px;
+
+  margin-right: 5px;
+}
+
+
+footer small {
+  display: block;
+
+  margin-top: 6px;
+
+  color: #3d3d3d;
+
+  font-size: 7px;
+
+  letter-spacing: 3px;
+}
+
+
+/* =========================================
+   TABLET
+========================================= */
+
+@media (max-width: 1050px) {
+
+  .game-layout {
+    flex-direction: column;
+
+    align-items: center;
+  }
+
+
+  .player-card {
+    width: min(650px, 90vw);
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    text-align: left;
+
+    padding: 12px 18px;
+  }
+
+
+  .player-avatar {
+    margin: 0;
+  }
+
+
+  .player-label {
+    margin-top: 0;
+  }
+
+
+  .turn-box {
+    margin-top: 0;
+  }
+
+
+  .board-container {
+    width: min(650px, 90vw);
+  }
+
+}
+
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 650px) {
+
+  .header {
+    height: 65px;
+
+    padding: 0 15px;
+  }
+
+
+  .logo {
+    width: 36px;
+    height: 36px;
+
+    font-size: 21px;
+  }
+
+
+  .logo-area h1 {
+    font-size: 14px;
+  }
+
+
+  .logo-area p {
+    font-size: 6px;
+  }
+
+
+  .online {
+    font-size: 7px;
+  }
+
+
+  .container {
+    padding:
+      30px 10px 50px;
+  }
+
+
+  .hero h2 {
+    font-size: 34px;
+  }
+
+
+  .hero p {
+    font-size: 11px;
+  }
+
+
+  .room-card {
+    padding: 18px 13px;
+  }
+
+
+  .room-form {
+    flex-direction: column;
+  }
+
+
+  .btn {
+    width: 100%;
+  }
+
+
+  .game-layout {
+    gap: 12px;
+  }
+
+
+  .board-container {
+    width: 96vw;
+  }
+
+
+  .chess-board {
+    border-width: 4px;
+  }
+
+
+  .piece {
+    font-size: 10vw;
+  }
+
+
+  .player-card {
+    width: 96vw;
+  }
+
+
+  .features {
+    flex-direction: column;
+
+    align-items: center;
+  }
+
+
+  .feature {
+    width: 96vw;
+  }
+
+
+  .board-footer {
+    flex-direction: column;
+
+    gap: 10px;
+  }
+
+
+  .status {
+    justify-content: center;
+  }
+
+
+  .new-game {
+    width: 100%;
+  }
+
+}
